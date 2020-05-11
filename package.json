@@ -1,0 +1,40 @@
+{
+  "name": "finance-manager",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --open --mode development --config config/webpack/webpack.config.js",
+    "build": "webpack --mode production --config config/webpack/webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rqm64/finance-manager.git"
+  },
+  "author": "Alexey Shevchenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rqm64/finance-manager/issues"
+  },
+  "keywords": [],
+  "homepage": "https://github.com/rqm64/finance-manager#readme",
+  "devDependencies": {
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "css-loader": "^3.5.3",
+    "html-loader": "^1.1.0",
+    "html-webpack-plugin": "^4.3.0",
+    "less": "^3.11.1",
+    "less-loader": "^6.1.0",
+    "style-loader": "^1.2.1",
+    "ts-loader": "^7.0.4",
+    "typescript": "^3.8.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
