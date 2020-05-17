@@ -16,6 +16,10 @@ module.exports = {
     })
   ],
   resolve: {
+    modules: [
+      'node_modules',
+      'src'
+    ],
     extensions: ['.tsx', '.ts', '.js'],
   }
 };
