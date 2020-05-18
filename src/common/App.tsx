@@ -1,10 +1,13 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import {Accounting} from 'modules/Accounting';
-import {NavigationLayout} from 'modules/Navigation';
+import {IDB} from 'Common';
+import {Accounting} from 'Modules/Accounting';
+import {NavigationLayout} from 'Modules/Navigation';
 import {ROUTE_PATH} from './Consts';
 
 import 'antd/dist/antd.css';
+
+IDB.open();
 
 const App = () => {
     return(

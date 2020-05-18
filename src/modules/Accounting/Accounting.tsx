@@ -1,9 +1,9 @@
-import {Table} from 'antd';
 import React from 'react';
+import {DependencyHOC} from 'Common';
 import {FilterAcc} from './FilterAcc';
 import {TableAcc} from './TableAcc';
 
-export const Accounting = () => {
+const AccountingComponent = () => {
     return (
         <>
             <FilterAcc />
@@ -11,3 +11,5 @@ export const Accounting = () => {
         </>
     );
 };
+
+export const Accounting = DependencyHOC(AccountingComponent);
