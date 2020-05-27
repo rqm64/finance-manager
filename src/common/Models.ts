@@ -1,4 +1,8 @@
-import {ETransactionType} from './Enums';
+import {ETransactionType, EIDBStoreName} from './Enums';
+
+export interface IStore {
+    [EIDBStoreName.TRANSACTIONS]?: ITransaction[];
+}
 
 export interface ITransaction {
     account: any;

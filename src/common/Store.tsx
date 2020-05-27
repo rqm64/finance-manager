@@ -1,9 +1,15 @@
-import {combineReducers, createStore, ReducersMapObject} from 'redux';
+import {combineReducers, createStore, ReducersMapObject, Store} from 'redux';
+import {IStore} from './Models';
+
+export interface IAsyncStore extends Store {
+    asyncReducers?: any;
+    addReducer?: any;
+}
 
 const createReducer = (reducers?: any) => combineReducers({...reducers});
 
 function configureStore() {
-    const store: any = {
+    const store: IAsyncStore  = {
         ...createStore(
             createReducer(),
             (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__()
@@ -19,7 +25,7 @@ function configureStore() {
                 store.asyncReducers[key] = reducers[key];
             }
         });
-        isUpdate && store.replaceReducer(createReducer(store.asyncReducers));
+        isUpdate && store.replaceReducer(combineReducers({...store.asyncReducers}));
         return store;
     };
     return store;
