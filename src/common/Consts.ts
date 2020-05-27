@@ -1,4 +1,4 @@
 export enum ROUTE_PATH {
     HOME = '/',
-    ACCOUNTING_TABLE = '/table'
+    TRANSACTIONS_TABLE = '/transactions'
 };

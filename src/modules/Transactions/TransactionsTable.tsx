@@ -19,7 +19,7 @@ const columns = [
     },
 ];
 
-export const TableAcc = () => {
+export const TransactionTable = () => {
     return (
         <Table columns={columns} />
     );

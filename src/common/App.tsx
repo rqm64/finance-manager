@@ -1,24 +1,28 @@
 import React from 'react';
+import {Provider} from 'react-redux';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import {IDB} from 'Common';
-import {Accounting} from 'Modules/Accounting';
+import {Transactions} from 'Modules/Transactions';
 import {NavigationLayout} from 'Modules/Navigation';
 import {ROUTE_PATH} from './Consts';
+import {openIDB} from './IDB/Database';
+import {store} from './Store';
 
 import 'antd/dist/antd.css';
 
-IDB.open();
+openIDB();
 
 const App = () => {
     return(
-        <BrowserRouter>
-            <NavigationLayout>
-                <Switch>
-                    <Route exact path={[ROUTE_PATH.HOME, ROUTE_PATH.ACCOUNTING_TABLE]} component={Accounting} />
-                </Switch>
-            </NavigationLayout>
-        </BrowserRouter>
+        <Provider store={store}>
+            <BrowserRouter>
+                <NavigationLayout>
+                    <Switch>
+                        <Route exact path={[ROUTE_PATH.HOME, ROUTE_PATH.TRANSACTIONS_TABLE]} component={Transactions} />
+                    </Switch>
+                </NavigationLayout>
+            </BrowserRouter>
+        </Provider>
     )
-}
+};
 
 export default App;
