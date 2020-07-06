@@ -4,9 +4,9 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {Transactions} from 'Modules/Transactions';
 import {NavigationLayout} from 'Modules/Navigation';
 import {ROUTE_PATH} from './Consts';
+import './i18n'; 
 import {openIDB} from './IDB/Database';
 import {store} from './Store';
-
 
 const App = () => {
     const [loaded, setLoaded] = useState(false);
