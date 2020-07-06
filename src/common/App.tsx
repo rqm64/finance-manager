@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {Provider} from 'react-redux';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {Transactions} from 'Modules/Transactions';
@@ -7,12 +7,15 @@ import {ROUTE_PATH} from './Consts';
 import {openIDB} from './IDB/Database';
 import {store} from './Store';
 
-import 'antd/dist/antd.css';
-
-openIDB();
 
 const App = () => {
-    return(
+    const [loaded, setLoaded] = useState(false);
+
+    useEffect(() => {
+        openIDB(setLoaded);
+    }, []);
+
+    return loaded && (
         <Provider store={store}>
             <BrowserRouter>
                 <NavigationLayout>
@@ -22,7 +25,7 @@ const App = () => {
                 </NavigationLayout>
             </BrowserRouter>
         </Provider>
-    )
+    );
 };
 
 export default App;

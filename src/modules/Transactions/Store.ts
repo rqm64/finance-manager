@@ -1,28 +1,19 @@
-import {useEffect, useContext} from 'react';
+import {useEffect, useContext, useMemo} from 'react';
 import {ReactReduxContext, useDispatch} from 'react-redux';
+import {IDBStoreName, createIDBActions, createIDBReducers} from 'Common';
 
-export enum ETransactionsActionType {
-    ADD_ITEM = 'TRANSACTIONS_ADD_ITEM',
-}
-
-export const useInitStoreTransactions = () => {
+export function useInitStoreTransactions() {
     const {store} = useContext<any>(ReactReduxContext);
 
     useEffect(() => {
-        if (store && store.addReducer) {
-            store.addReducer({test: () => 123});
-        }
+        createIDBReducers(store, IDBStoreName.TRANSACTIONS);
     }, []);
 }
 
-export const useTransactionsActions = () => {
+export function useTransactionsActions() {
     const dispatch = useDispatch();
 
-    const addTransaction = () => {
-        dispatch({type: ETransactionsActionType.ADD_ITEM});
-    }
+    const IDBActions = useMemo(() => createIDBActions(dispatch, IDBStoreName.TRANSACTIONS), []);
 
-    return {
-        addTransaction
-    };
+    return IDBActions;
 };
