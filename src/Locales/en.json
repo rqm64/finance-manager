@@ -1,7 +1,17 @@
 {
     "Transactions": {
         "ModalCreate": {
-            "title": "New transaction"
+            "title": "New transaction",
+            "type": "Type",
+            "amount": "Amount",
+            "category": "Category",
+            "date": "Date",
+            "account": "Account",
+            "notes": "Notes"
+        },
+        "TransactionType": {
+            "INCOME": "Income",
+            "EXPENSE": "Expense"
         }
     }
 }

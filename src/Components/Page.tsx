@@ -1,5 +1,5 @@
 import React from 'react';
-import style from 'Styles/Common/page.less';
+import style from './Styles/page.less';
 import {Aside} from './Aside';
 
 interface IProps {

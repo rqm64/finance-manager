@@ -1,5 +1,5 @@
 import React from 'react';
-import {Page} from 'Common/Components';
+import {Page} from 'Components';
 
 interface IProps {}
 

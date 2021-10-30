@@ -1,4 +1,4 @@
-import {useEffect, useContext, useMemo} from 'react';
+import {useEffect, useContext, useRef} from 'react';
 import {ReactReduxContext, useDispatch} from 'react-redux';
 import {IDBStoreName, createIDBActions, createIDBReducers} from 'Common';
 
@@ -13,7 +13,7 @@ export function useInitStoreTransactions() {
 export function useTransactionsActions() {
     const dispatch = useDispatch();
 
-    const IDBActions = useMemo(() => createIDBActions(dispatch, IDBStoreName.TRANSACTIONS), []);
+    const IDBActions = useRef(createIDBActions(dispatch, IDBStoreName.TRANSACTIONS)).current;
 
     return IDBActions;
 };

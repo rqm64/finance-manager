@@ -8,14 +8,15 @@ interface IProps {
     data: IDBData<ITransaction>;
 }
 
+const itemConstent = (index: number, item: ITransaction) => <TransactionsTableRow index={index} item={item} />
+
 export const TransactionTable: React.FC<IProps> = ({data}) => {
     return (
         <Virtuoso
-            style={{height: '100%'}}
+            data={data.items || []}
             overscan={100}
             totalCount={data.totalCount}
-            item={TransactionsTableRow}
-            endReached={() => {}}
+            itemContent={itemConstent}
         />
     );
 };

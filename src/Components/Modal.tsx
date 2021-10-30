@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import style from 'Styles/Common/modal.less';
+import style from './Styles/modal.less';
 
 interface IProps {
     title: string;
@@ -31,7 +31,7 @@ export const Modal: React.FC<TProps> = ({isOpen, onClose, children, title}) => (
     ) : null
 );
 
-export const useModal = () => {
+export const useModalState = () => {
     const [isShowModal, setIsShow] = useState(false);
 
     const handleShowModal = () => {

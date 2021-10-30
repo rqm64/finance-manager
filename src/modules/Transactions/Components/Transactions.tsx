@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {useSelector} from 'Common';
 import {getNow} from 'Common/Utils/DateUtils';
+import { ITransaction } from '../Models';
 import {useInitStoreTransactions, useTransactionsActions} from '../Store';
 import style from '../Styles/transactions.less';
 import {TransactionsFilter} from './TransactionsFilter';
@@ -12,8 +13,9 @@ export const Transactions = () => {
 
     const transactions = useSelector(state => state.Transactions);
 
-    const handleCreate = () => {
-        // actions.addItem({amount: '10', date: getNow()});
+    const handleCreate = (transactions: ITransaction) => {
+        actions.addItem(transactions);
+        actions.getItems();
     };
 
     useEffect(() => {

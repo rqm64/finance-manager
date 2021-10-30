@@ -1,3 +1,4 @@
+import { v4 } from 'uuid';
 import {IDBStoreName} from '../Enums';
 import {IDBTypesMap} from '../Models';
 import {storeConfig} from './Config';

@@ -16,7 +16,7 @@ export const createIDBActions = <T extends IDBStoreName, K extends IDBTypesMap[T
     return {
         addItem: (item: Omit<K, 'id'>) => {
             dispatch({type: `${type}.${IDBActionType.ADD_ITEM}.${IDBActionStatus.RUNNING}`});
-            addIDBItem(type, {id: v4(), ...item})
+            addIDBItem(type, {...item, id: v4()})
             .then(() => {
                 dispatch({type: `${type}.${IDBActionType.ADD_ITEM}.${IDBActionStatus.SUCCESS}`});
             })
@@ -39,7 +39,7 @@ export const createIDBActions = <T extends IDBStoreName, K extends IDBTypesMap[T
                 dispatch({type: `${type}.${IDBActionType.GET_ITEMS}.${IDBActionStatus.RUNNING}`});
                 const [totalCount, items] = await Promise.all([
                     getCount(type),
-                    getIDBItems(type)
+                    getIDBItems(type),
                 ]);
                 dispatch({type: `${type}.${IDBActionType.GET_ITEMS}.${IDBActionStatus.SUCCESS}`, payload: {items, totalCount}});
             } catch {
